@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.table2excel.min.js"></script>
+</head>
+<body>
+    <table id="poem">
+        <tr>
+            <th></th>
+            <th>一</th>
+            <th>二</th>
+            <th>三</th>
+            <th>四</th>
+        </tr>
+        <tr>
+            <td>万籁寂无声</td>
+            <td>衾铁棱棱近五更</td>
+            <td>香断灯昏吟未稳</td>
+            <td>凄清</td>
+            <td>只有霜华伴月明</td>
+        </tr>
+        <tr>
+            <td>应是夜寒凝</td>
+            <td>恼得梅花睡不成</td>
+            <td>我念梅花花念我</td>
+            <td>关情</td>
+            <td>起看清冰满玉瓶</td>
+        </tr>
+    </table>
+    <input type="button" id="btn_poem" value="导出到Excel">
+
+    <script>
+        $("#btn_poem").click(function() {
+            $("#poem").table2excel({
+                exclude: ".noExl",
+                name: "poem",
+                filename: "myFileName" + new Date().toISOString().replace(/[\-\:\.]/g, ""),
+                fileext: ".xls",
+                exclude_img: true,
+                exclude_links: true,
+                exclude_inputs: true
+            });
+        });
+    </script>
+</body>
+</html>
