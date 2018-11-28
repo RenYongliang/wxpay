@@ -14,11 +14,18 @@ public class BuyCarController {
 
     @RequestMapping("/buy")
     public void test(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Cookie cookie = new Cookie("username","ryl");
-        HttpSession session = request.getSession();
-        session.setAttribute("password",123);
-        response.addCookie(cookie);
-        response.getWriter().write("HttpServlet");
+//        String name = request.getParameter("name");
+//        System.out.println(name);
+//        Cookie cookie = new Cookie("username","ryl");
+//        HttpSession session = request.getSession();
+//        session.setAttribute("password",123);
+//        response.addCookie(cookie);
+//        response.getWriter().write("HttpServlet");
 
+    }
+
+    @RequestMapping("/goodsList")
+    public String goods(){
+        return "goods";
     }
 }
