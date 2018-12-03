@@ -1,4 +1,4 @@
-package com.ryl.wxpay.common;
+package com.ryl.wxpay.common.miniprogram;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.jdom.Document;

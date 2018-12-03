@@ -1,10 +1,12 @@
 package com.ryl.wxpay.controller;
 
 import com.google.gson.Gson;
-import com.ryl.wxpay.common.HttpUtil;
-import com.ryl.wxpay.common.PayCommonUtil;
-import com.ryl.wxpay.common.WxPayConfig;
-import com.ryl.wxpay.common.XMLUtil;
+import com.ryl.wxpay.common.miniprogram.HttpUtil;
+import com.ryl.wxpay.common.miniprogram.PayCommonUtil;
+import com.ryl.wxpay.common.miniprogram.WxPayConfig;
+import com.ryl.wxpay.common.miniprogram.XMLUtil;
+import com.ryl.wxpay.common.subscrip.AesException;
+import com.ryl.wxpay.common.subscrip.WXPublicUtils;
 import org.jdom.JDOMException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -116,5 +118,19 @@ public class WxPayController {
         out.write(resXml.getBytes());
         out.flush();
         out.close();
+    }
+
+
+    @RequestMapping("/verify_wx_token")
+    @ResponseBody
+    public String verifyWXToken(HttpServletRequest request) throws AesException {
+        String msgSignature = request.getParameter("signature");
+        String msgTimestamp = request.getParameter("timestamp");
+        String msgNonce = request.getParameter("nonce");
+        String echostr = request.getParameter("echostr");
+        if (WXPublicUtils.verifyUrl(msgSignature, msgTimestamp, msgNonce)) {
+            return echostr;
+        }
+        return null;
     }
 }

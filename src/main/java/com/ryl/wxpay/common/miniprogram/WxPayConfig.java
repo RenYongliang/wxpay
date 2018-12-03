@@ -1,4 +1,4 @@
-package com.ryl.wxpay.common;
+package com.ryl.wxpay.common.miniprogram;
 
 public class WxPayConfig {
     //支付成功后的服务器回调url  

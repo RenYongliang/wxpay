@@ -1,4 +1,4 @@
-package com.ryl.wxpay.common;
+package com.ryl.wxpay.common.miniprogram;
 
 import java.io.BufferedReader;
 import java.io.IOException;
