@@ -11,6 +11,8 @@ public class WxPayConfig {
     public static final String pay_url = "https://api.mch.weixin.qq.com/pay/unifiedorder";
     //微信获取access_token接口
     public static final String access_token_url = "https://api.weixin.qq.com/cgi-bin/token";
+    //微信卡券上传图片接口
+    public static final String upload_img_url = "https://api.weixin.qq.com/cgi-bin/media/uploadimg";
     
 }  
 
