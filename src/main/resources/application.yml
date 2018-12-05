@@ -5,3 +5,9 @@ spring:
     static-path-pattern: /**
   resources:
     static-locations: classpath:/static/,classpath:/templates/
+  datasource:
+    url: jdbc:mysql://localhost:3306/rsystem?serverTimezone=GMT%2B8
+    username: root
+    password: ryl123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+

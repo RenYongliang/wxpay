@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
+import java.util.Map;
 
 public class HttpUtil {
 	 private final static int CONNECT_TIMEOUT = 5000; // in milliseconds  
@@ -16,7 +18,8 @@ public class HttpUtil {
      }  
 
      public static String postData(String urlStr, String data, String contentType){  
-         BufferedReader reader = null;  
+         BufferedReader reader = null;
+         StringBuilder sb = null;
          try {  
              URL url = new URL(urlStr);  
              URLConnection conn = url.openConnection();  
@@ -32,13 +35,12 @@ public class HttpUtil {
              writer.close();    
 
              reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), DEFAULT_ENCODING));  
-             StringBuilder sb = new StringBuilder();  
+             sb = new StringBuilder();
              String line = null;  
              while ((line = reader.readLine()) != null) {  
                  sb.append(line);  
                  sb.append("\r\n");  
-             }  
-             return sb.toString();  
+             }
          } catch (IOException e) {  
              //logger.error("Error connecting to " + urlStr + ": " + e.getMessage());  
          } finally {  
@@ -48,11 +50,38 @@ public class HttpUtil {
              } catch (IOException e) {  
              }  
          }  
-         return null;  
+         return sb.toString();
      }
 
-	public static String sendGet(String url, String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}  
+	public static String sendGet(String url, String param) {
+        BufferedReader reader = null;
+        StringBuilder sb = null;
+        try {
+            String urlStr = url + "?" + param;
+            URL realUrl = new URL(urlStr);
+            URLConnection connection = realUrl.openConnection();
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.connect();
+            connection.getOutputStream().flush();
+            reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),DEFAULT_ENCODING));
+            sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+                sb.append("\r\n");
+            }
+        } catch (IOException e) {
+            //logger.error("Error connecting to " + urlStr + ": " + e.getMessage());
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
+    }
 }

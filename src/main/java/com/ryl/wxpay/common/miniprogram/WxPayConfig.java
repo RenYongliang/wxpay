@@ -9,6 +9,8 @@ public class WxPayConfig {
     public static final String TRADETYPE = "JSAPI";  
     //微信统一下单接口地址  
     public static final String pay_url = "https://api.mch.weixin.qq.com/pay/unifiedorder";
+    //微信获取access_token接口
+    public static final String access_token_url = "https://api.weixin.qq.com/cgi-bin/token";
     
 }  
 
