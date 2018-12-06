@@ -56,8 +56,13 @@ public class HttpUtil {
 	public static String sendGet(String url, String param) {
         BufferedReader reader = null;
         StringBuilder sb = null;
+        String urlStr;
         try {
-            String urlStr = url + "?" + param;
+            if("".equals(param)||param==null){
+                urlStr = url;
+            }else {
+                urlStr = url + "?" + param;
+            }
             URL realUrl = new URL(urlStr);
             URLConnection connection = realUrl.openConnection();
             connection.setDoInput(true);

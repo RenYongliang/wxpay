@@ -13,6 +13,12 @@ public class WxPayConfig {
     public static final String access_token_url = "https://api.weixin.qq.com/cgi-bin/token";
     //微信卡券上传图片接口
     public static final String upload_img_url = "https://api.weixin.qq.com/cgi-bin/media/uploadimg";
+    //卡券详细信息上传接口
+    public static final String card_info_url = "https://api.weixin.qq.com/card/create";
+    //创建二维码接口
+    public static final String ticket_url = "https://api.weixin.qq.com/card/qrcode/create";
+    //ticket换取二维码
+    public static final String qrcode_url = "https://mp.weixin.qq.com/cgi-bin/showqrcode";
     
 }  
 

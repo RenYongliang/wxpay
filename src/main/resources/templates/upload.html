@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <form id="form1" action method="post" enctype="multipart/form-data">
+        <input name="file" type="file" value="选择图片">
+        <input id="btn" type="button" value="提交">
+    </form>
+    <p id="msg"></p>
+
+
+    <script>
+        $(function(){
+            $("#btn").click(function () {
+                $.ajax({
+                    url:"/card/create",
+                    data:$("#form1").serialize(),
+                    type:"post",
+                    success:function (data) {
+                        $("#msg").html(data);
+                    }
+                });
+            })
+        })
+    </script>
+</body>
+</html>
