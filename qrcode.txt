@@ -2,7 +2,7 @@
  "expire_seconds": 1800,
 "action_info": {
 "card": {
-"card_id": "p6gKo1D54lSakG_gtyxvJ0rrJJ1s",
+"card_id": "p6gKo1JVQmWsv37hBPYB84zLu7gc",
  "code": "198374613512",
 "openid": "oFS7Fjl0WsZ9AMZqrI80nbIq8xrA",
 "is_unique_code": false ,

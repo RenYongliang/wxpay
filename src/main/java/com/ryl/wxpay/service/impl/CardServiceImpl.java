@@ -143,4 +143,23 @@ public class CardServiceImpl implements CardService {
         return in;
     }
 
+    @Override
+    public String submitVipInfo(String access_token, String data) throws IOException {
+        String reqUrl = WxPayConfig.vip_info_url + "?access_token=" + access_token;
+        String result;
+        try(
+                BufferedInputStream bis = new BufferedInputStream(new FileInputStream("vipinfo.txt"));
+                ByteArrayOutputStream baos = new ByteArrayOutputStream()
+        ){
+            int b;
+            while((b=bis.read())!=-1){
+                baos.write(b);
+            }
+            result = baos.toString();
+        }
+        String res = HttpUtil.postData(reqUrl, result,"application/json");
+        return res;
+    }
+
+
 }

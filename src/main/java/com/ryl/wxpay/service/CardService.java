@@ -12,6 +12,7 @@ public interface CardService {
     String getCardID(String access_token,String data) throws IOException;
     String getTicket(String access_token,String data) throws IOException;
     InputStream getQRCode(String ticket) throws Exception;
+    String submitVipInfo(String access_token,String dat) throws IOException;
 
 
 

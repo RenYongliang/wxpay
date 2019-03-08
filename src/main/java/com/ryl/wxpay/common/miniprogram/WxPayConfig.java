@@ -19,6 +19,8 @@ public class WxPayConfig {
     public static final String ticket_url = "https://api.weixin.qq.com/card/qrcode/create";
     //ticket换取二维码
     public static final String qrcode_url = "https://mp.weixin.qq.com/cgi-bin/showqrcode";
+    //会员卡激活前信息提交
+    public static final String vip_info_url = "https://api.weixin.qq.com/card/membercard/activateuserform/set";
     
 }  
 
